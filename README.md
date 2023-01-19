@@ -73,13 +73,13 @@ OpenJDK version 11.0.11
 2.6.8
 
 ## Dependencies
-Lombok
-H2DB
-JPA
-Embedded redis
-Spring Web
-Spring MVC
-Validation
+- Lombok
+- H2DB
+- JPA
+- Embedded redis
+- Spring Web
+- Spring MVC
+- Validation
 
 
 
