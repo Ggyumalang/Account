@@ -36,7 +36,7 @@ public class TransactionController {
     ) throws InterruptedException {
         try {
             //AOP LOCK이 잘 작동하는 지 확인하기 위해 넣음
-            Thread.sleep(5000L);
+            Thread.sleep(3000L);
 
             return UseBalance.Response.from(transactionService.useBalance(
                             request.getUserId()
