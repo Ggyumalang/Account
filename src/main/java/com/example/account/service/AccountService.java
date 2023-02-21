@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 import static com.example.account.type.AccountStatus.IN_USE;
@@ -80,9 +81,8 @@ public class AccountService {
     }
 
     private AccountUser getAccountUser(Long userId) {
-        AccountUser accountUser = accountUserRepository.findById(userId)
+        return accountUserRepository.findById(userId)
                 .orElseThrow(() -> new AccountException(USER_NOT_FOUND));
-        return accountUser;
     }
 
     /**
@@ -95,7 +95,7 @@ public class AccountService {
      * @param account
      */
     private void validateDeleteAccount(AccountUser accountUser, Account account) {
-        if (accountUser.getId() != account.getAccountUser().getId()) {
+        if (!Objects.equals(accountUser.getId(), account.getAccountUser().getId())) {
             throw new AccountException(USER_ACCOUNT_UNMATCHED);
         }
 

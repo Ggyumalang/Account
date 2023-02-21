@@ -78,7 +78,7 @@ public class TransactionService {
      * @param account
      */
     private void validateUseBalance(AccountUser accountUser, Account account, Long amount) {
-        if (accountUser.getId() != account.getAccountUser().getId()) {
+        if (!Objects.equals(accountUser.getId(), account.getAccountUser().getId())) {
             throw new AccountException(USER_ACCOUNT_UNMATCHED);
         }
 
